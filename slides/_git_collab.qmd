@@ -104,9 +104,6 @@ Description plus détaillée : [ici](https://docs.github.com/en/get-started/quic
 
 {{< include applications_git/_application6.qmd >}}
 
-## Application 7
-
-{{< include applications_git/_application7.qmd >}}
 
 ## Application 8 (bonus)
 

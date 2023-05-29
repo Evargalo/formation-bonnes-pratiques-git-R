@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.475">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>git_fundamentals</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="_git_fundamentals_files/libs/clipboard/clipboard.min.js"></script>
+<script src="_git_fundamentals_files/libs/quarto-html/quarto.js"></script>
+<script src="_git_fundamentals_files/libs/quarto-html/popper.min.js"></script>
+<script src="_git_fundamentals_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="_git_fundamentals_files/libs/quarto-html/anchor.min.js"></script>
+<link href="_git_fundamentals_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="_git_fundamentals_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="_git_fundamentals_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="_git_fundamentals_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="_git_fundamentals_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+
+</head>
+
+<body class="fullcontent">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+
+
+<section id="i--le-contrôle-de-version-pourquoi-faire" class="level1">
+<h1>I- Le contrôle de version : pourquoi faire ?</h1>
+<section id="one-archiver-son-code-proprement" class="level2" data-auto-animate="true">
+<h2 data-auto-animate="true" class="anchored" data-anchor-id="one-archiver-son-code-proprement">:one: Archiver son code proprement</h2>
+<p>pour en finir avec ça :</p>
+<p><img src="img/fichiers_multiples.png" class="img-fluid"></p>
+</section>
+<section id="one-archiver-son-code-proprement-1" class="level2" data-auto-animate="true">
+<h2 data-auto-animate="true" class="anchored" data-anchor-id="one-archiver-son-code-proprement-1">:one: Archiver son code proprement</h2>
+<p>ou ça :</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/finalfinal.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</section>
+<section id="one-archiver-son-code-proprement-2" class="level2" data-auto-animate="true">
+<h2 data-auto-animate="true" class="anchored" data-anchor-id="one-archiver-son-code-proprement-2">:one: Archiver son code proprement</h2>
+<p>ou encore ça :</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a>prior <span class="op">&lt;-</span> read_csv(prior_path)</span>
+<span id="cb1-2"><a href="#cb1-2"></a>prior <span class="op">&lt;-</span> prior <span class="op">%&gt;%</span></span>
+<span id="cb1-3"><a href="#cb1-3"></a>    select(<span class="bu">id</span>, proba_inter, proba_build, proba_rfl) <span class="op">%&gt;%</span></span>
+<span id="cb1-4"><a href="#cb1-4"></a>    separate(<span class="bu">id</span>, into <span class="op">=</span> c(<span class="st">'nidt'</span>, <span class="st">'grid_id'</span>), sep <span class="op">=</span> <span class="st">":"</span>) <span class="op">%&gt;%</span></span>
+<span id="cb1-5"><a href="#cb1-5"></a>    group_by(nidt) <span class="op">%&gt;%</span></span>
+<span id="cb1-6"><a href="#cb1-6"></a>    mutate(</span>
+<span id="cb1-7"><a href="#cb1-7"></a>        proba_build <span class="op">=</span> proba_build<span class="op">/</span><span class="bu">sum</span>(proba_build),</span>
+<span id="cb1-8"><a href="#cb1-8"></a>        proba_rfl <span class="op">=</span> proba_rfl<span class="op">/</span><span class="bu">sum</span>(proba_rfl),</span>
+<span id="cb1-9"><a href="#cb1-9"></a>        ) <span class="op">%&gt;%</span></span>
+<span id="cb1-10"><a href="#cb1-10"></a>    unite(col <span class="op">=</span> <span class="st">"id"</span>, nidt, grid_id, sep <span class="op">=</span> <span class="st">":"</span>)</span>
+<span id="cb1-11"><a href="#cb1-11"></a></span>
+<span id="cb1-12"><a href="#cb1-12"></a><span class="co"># Test</span></span>
+<span id="cb1-13"><a href="#cb1-13"></a><span class="co"># prior_test &lt;- prior %&gt;%</span></span>
+<span id="cb1-14"><a href="#cb1-14"></a><span class="co">#    mutate(</span></span>
+<span id="cb1-15"><a href="#cb1-15"></a><span class="co">#        proba_inter = round(proba_inter, 4)</span></span>
+<span id="cb1-16"><a href="#cb1-16"></a><span class="co">#        proba_build = round(proba_build, 4)</span></span>
+<span id="cb1-17"><a href="#cb1-17"></a><span class="co">#        proba_rfl = round(proba_rfl, 4)</span></span>
+<span id="cb1-18"><a href="#cb1-18"></a><span class="co">#    )</span></span>
+<span id="cb1-19"><a href="#cb1-19"></a></span>
+<span id="cb1-20"><a href="#cb1-20"></a>write_csv(prior_round, <span class="st">"~/prior.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="one-archiver-son-code-proprement-3" class="level2" data-auto-animate="true">
+<h2 data-auto-animate="true" class="anchored" data-anchor-id="one-archiver-son-code-proprement-3">:one: Archiver son code proprement</h2>
+<p>Pour arriver à ça :</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/timeline.png" height="475" class="figure-img"></p>
+</figure>
+</div>
+<p>Source : <a href="https://thinkr.fr/travailler-avec-git-via-rstudio-et-versionner-son-code/">ThinkR</a></p>
+</section>
+<section id="two-voyager-dans-le-temps-de-votre-projet" class="level2">
+<h2 class="anchored" data-anchor-id="two-voyager-dans-le-temps-de-votre-projet">:two: Voyager dans le temps (de votre projet)</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/historique_utilitr.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</section>
+<section id="three-une-collaboration-simplifiée-et-efficace" class="level2" data-auto-animate="true">
+<h2 data-auto-animate="true" class="anchored" data-anchor-id="three-une-collaboration-simplifiée-et-efficace">:three: Une collaboration simplifiée et efficace</h2>
+<p>Un modèle distribué</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/git_distributed.png" height="475" class="figure-img"></p>
+</figure>
+</div>
+<p>Source : <a href="https://www.specbee.com">specbee.com</a></p>
+</section>
+<section id="three-une-collaboration-simplifiée-et-efficace-1" class="level2" data-auto-animate="true">
+<h2 data-auto-animate="true" class="anchored" data-anchor-id="three-une-collaboration-simplifiée-et-efficace-1">:three: Une collaboration simplifiée et efficace</h2>
+<p>Qui permet l’expérimentation en toute sécurité</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/branches.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+<p>Source : <a href="https://lutece.paris.fr/support/jsp/site/Portal.jsp?page=wiki&amp;view=page&amp;page_name=git&amp;language=fr">lutece.paris.fr</a></p>
+</section>
+<section id="three-une-collaboration-simplifiée-et-efficace-2" class="level2" data-auto-animate="true">
+<h2 data-auto-animate="true" class="anchored" data-anchor-id="three-une-collaboration-simplifiée-et-efficace-2">:three: Une collaboration simplifiée et efficace</h2>
+<p>Quel que soit l’environnement de travail</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/envtravail.png" height="475" class="figure-img"></p>
+</figure>
+</div>
+</section>
+<section id="three-une-collaboration-simplifiée-et-efficace-3" class="level2" data-auto-animate="true">
+<h2 data-auto-animate="true" class="anchored" data-anchor-id="three-une-collaboration-simplifiée-et-efficace-3">:three: Une collaboration simplifiée et efficace</h2>
+<p>Avec des outils pour faciliter la collaboration</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/issue.png" height="500" class="figure-img"></p>
+</figure>
+</div>
+</section>
+<section id="four-partager-son-code-à-un-public-large" class="level2" data-auto-animate="true">
+<h2 data-auto-animate="true" class="anchored" data-anchor-id="four-partager-son-code-à-un-public-large">:four: Partager son code à un public large</h2>
+<p>Une vitrine pour les projets et l’organisation</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/ghinseefr.png" height="475" class="figure-img"></p>
+</figure>
+</div>
+</section>
+<section id="en-résumé" class="level2">
+<h2 class="anchored" data-anchor-id="en-résumé">En résumé</h2>
+<ul>
+<li><span class="blue2"><strong>Construire</strong></span> et <span class="blue2"><strong>naviguer</strong></span> à travers l’<span class="orange"><strong>historique</strong></span> de son projet</li>
+</ul>
+<div class="incremental">
+<ul>
+<li>La <span class="orange"><strong>collaboration</strong></span> rendue <span class="blue2"><strong>simple</strong></span> et <span class="blue2"><strong>efficace</strong></span></li>
+</ul>
+</div>
+<div class="incremental">
+<ul>
+<li>Améliorer la <span class="orange"><strong>reproductibilité</strong></span> de ses projets</li>
+</ul>
+</div>
+<div class="incremental">
+<ul>
+<li>Améliorer la <span class="orange"><strong>visibilité</strong></span> de ses projets</li>
+</ul>
+</div>
+</section>
+</section>
+<section id="ii--le-contrôle-de-version-avec-git" class="level1">
+<h1>II- Le contrôle de version avec <code>Git</code></h1>
+<section id="warning-git-est-complexe" class="level2" data-auto-animate="true">
+<h2 data-auto-animate="true" class="anchored" data-anchor-id="warning-git-est-complexe">:warning: Git est complexe</h2>
+<p>L’utilisation de <code>Git</code> nécessite <span class="orange"><strong>certaines notions préalables</strong></span>:</p>
+<div class="incremental">
+<ul class="incremental">
+<li>Fonctionnement d’un <code>filesystem</code></li>
+<li>Connaissance basique du terminal <code>Linux</code></li>
+<li>Potentiellement, un grand nombre de commandes</li>
+</ul>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/gitfire.png" height="400" class="figure-img"></p>
+<p></p><figcaption class="figure-caption">Source : <a href="https://iulianacosmina.com/?p=19452">Ici</a></figcaption><p></p>
+</figure>
+</div>
+</section>
+<section id="warning-git-est-complexe-1" class="level2" data-auto-animate="true">
+<h2 data-auto-animate="true" class="anchored" data-anchor-id="warning-git-est-complexe-1">:warning: Git est complexe</h2>
+<p><span class="blue2"><strong>Mais</strong></span></p>
+<div class="incremental">
+<ul class="incremental">
+<li>L’<strong>usage quotidien</strong> n’implique que <span class="orange"><strong>quelques commandes</strong></span></li>
+<li><span class="orange"><strong>Enormément de ressources</strong></span> disponibles sur internet</li>
+<li>Des <span class="orange"><strong>interfaces visuelles</strong></span> (ex: <code>RStudio</code>, <code>Sublime Merge</code>, <code>VS Code</code>) qui facilitent l’apprentissage</li>
+<li>Un petit investissement individuel pour de <span class="orange"><strong>gros gains collectifs</strong></span></li>
+</ul>
+</div>
+</section>
+<section id="concepts" class="level2" data-auto-animate="true">
+<h2 data-auto-animate="true" class="anchored" data-anchor-id="concepts">Concepts</h2>
+<section id="git-github-gitlab-quelles-différences" class="level4">
+<h4 class="anchored" data-anchor-id="git-github-gitlab-quelles-différences"><code>Git</code>, <code>GitHub</code>, <code>GitLab</code>… quelles différences ?</h4>
+<div class="incremental">
+<ul class="incremental">
+<li><code>Git</code> est un <strong>logiciel</strong> ;</li>
+<li>Utilisation en ligne de commandes</li>
+<li>Différentes <span class="blue2"><strong>interfaces graphiques</strong></span> (<code>RStudio</code>, <code>VS Code</code>…)</li>
+</ul>
+</div>
+</section>
+</section>
+<section id="concepts-1" class="level2" data-auto-animate="true">
+<h2 data-auto-animate="true" class="anchored" data-anchor-id="concepts-1">Concepts</h2>
+<section id="git-github-gitlab-quelles-différences-1" class="level4">
+<h4 class="anchored" data-anchor-id="git-github-gitlab-quelles-différences-1"><code>Git</code>, <code>GitHub</code>, <code>GitLab</code>… quelles différences ?</h4>
+<div class="incremental">
+<ul class="incremental">
+<li><code>GitHub</code> et <code>GitLab</code> sont des <strong>forges logicielles</strong></li>
+<li><em>Forge</em>: espace d’archivage de code</li>
+<li>Des fonctionalités supplémentaires : <strong>réseau social du code</strong></li>
+</ul>
+</div>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><code>GitHub</code> : utilisation pour les projets <strong>open-source</strong></li>
+<li><code>GitLab</code> : utilisation pour les projets <strong>internes</strong></li>
+</ul>
+</div>
+</div>
+</section>
+</section>
+<section id="concepts-2" class="level2" data-auto-animate="true">
+<h2 data-auto-animate="true" class="anchored" data-anchor-id="concepts-2">Concepts</h2>
+<section id="dépôt-local-dépôt-distant-remote" class="level4">
+<h4 class="anchored" data-anchor-id="dépôt-local-dépôt-distant-remote">Dépôt local / dépôt distant (<code>remote</code>)</h4>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/localremote.png" height="400" class="figure-img"></p>
+</figure>
+</div>
+<ul>
+<li>Par défaut, le dépôt distant porte l’alias <code>origin</code></li>
+</ul>
+<!-- ## Concepts {auto-animate=true}
+
+_Workflow_ (version littéraire) :
+
+- On travaille sur un dépôt local en éditant des fichiers
+- On dit à `Git` que ces fichiers doivent être suivis (`staging area`)
+- On valide les modifications faites en local (`commit`)
+- On soumet les modifications (`push`) après avoir récupéré la version collective (`pull`) -->
+</section>
+</section>
+<section id="concepts-3" class="level2" data-auto-animate="true">
+<h2 data-auto-animate="true" class="anchored" data-anchor-id="concepts-3">Concepts</h2>
+<section id="workflow-local" class="level4">
+<h4 class="anchored" data-anchor-id="workflow-local"><em>Workflow</em> local</h4>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/areas.png" height="400" class="figure-img"></p>
+</figure>
+</div>
+<p>Source : <a href="https://git-scm.com/book/en/v2/Getting-Started-What-is-Git%3F">Git Documentation</a></p>
+</section>
+</section>
+<section id="concepts-4" class="level2" data-auto-animate="true">
+<h2 data-auto-animate="true" class="anchored" data-anchor-id="concepts-4">Concepts</h2>
+<section id="workflow-complet" class="level4">
+<h4 class="anchored" data-anchor-id="workflow-complet"><em>Workflow</em> complet</h4>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/completeworkflow.png" width="500" height="400" class="figure-img"></p>
+<p></p><figcaption class="figure-caption">Source : <a href="https://itnext.io/git-concepts-for-newcomers-part-2-git-repository-working-tree-and-staging-area-a2e720bf3528">itnext.io</a></figcaption><p></p>
+</figure>
+</div>
+</section>
+</section>
+<section id="commandes-essentielles" class="level2" data-auto-animate="true">
+<h2 data-auto-animate="true" class="anchored" data-anchor-id="commandes-essentielles">Commandes essentielles</h2>
+<p><br></p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Action</th>
+<th>Commande</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Cloner un projet</td>
+<td><code>git clone [url-to-git-repo]</code></td>
+</tr>
+<tr class="even">
+<td>Afficher les changements</td>
+<td><code>git status</code></td>
+</tr>
+<tr class="odd">
+<td>Retrouver l’URL du dépôt distant</td>
+<td><code>git remote -v</code></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="commandes-essentielles-1" class="level2 smaller" data-auto-animate="true">
+<h2 class="smaller anchored" data-auto-animate="true" data-anchor-id="commandes-essentielles-1">Commandes essentielles</h2>
+<p><br></p>
+<table class="table">
+<colgroup>
+<col style="width: 44%">
+<col style="width: 55%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Action</th>
+<th>Commande</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Ajouter des changements à l’index de <code>Git</code></td>
+<td>Un seul fichier : <code>git add &lt;file-name&gt;</code> <br> Tous les fichiers déjà indexés : <code>git add -u</code> <br> Tous les fichiers :warning: : <code>git add -A</code></td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<div class="callout-important callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>La méthode <code>git add -A</code> peut amener à suivre les modifications de fichiers qui ne devraient pas l’être (par exemple, des données).</p>
+<p>Il est recommandé de bien réfléchir avant de l’utiliser (ou d’avoir un bon <code>.gitignore</code>)</p>
+</div>
+</div>
+</section>
+<section id="commandes-essentielles-2" class="level2" data-auto-animate="true">
+<h2 data-auto-animate="true" class="anchored" data-anchor-id="commandes-essentielles-2">Commandes essentielles</h2>
+<p><br></p>
+<table class="table">
+<colgroup>
+<col style="width: 44%">
+<col style="width: 55%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Action</th>
+<th>Commande</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Faire un <code>commit</code></td>
+<td><code>git commit -m "message"</code></td>
+</tr>
+<tr class="even">
+<td>Pousser les changements locaux (branche <code>master</code>)</td>
+<td><code>git push origin master</code></td>
+</tr>
+<tr class="odd">
+<td>Récupérer les changements distants (branche <code>master</code>)</td>
+<td><code>git pull origin master</code></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="modes-dauthentification" class="level2">
+<h2 class="anchored" data-anchor-id="modes-dauthentification">Modes d’authentification</h2>
+<div class="incremental">
+<ul class="incremental">
+<li><span class="orange"><strong>https</strong></span>
+<ul class="incremental">
+<li><code>git clone https://github.com/username/projet.git</code></li>
+<li>simple à utiliser</li>
+<li>authentification username/token à chaque <em>push</em></li>
+</ul></li>
+<li><span class="orange"><strong>ssh</strong></span>
+<ul class="incremental">
+<li><code>git clone git@github.com:username/projet.git</code></li>
+<li>(plus) complexe à initialiser</li>
+<li>authentification automatique</li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="application-0" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="application-0">Application 0</h2>
+<div class="callout-tip callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Préparation de l’environnement de travail
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="incremental">
+<ol class="incremental" type="1">
+<li>Créer un compte <a href="https://gitlab.com/"><code>GitLab</code></a></li>
+<li>Créer un nouveau dépôt <strong>privé</strong> sur <code>GitLab</code></li>
+<li>Ouvrir une session AUS</li>
+<li>Lancer <code>RStudio</code>.</li>
+<li>Cloner le dépôt distant sur votre environnement local : <code>File</code> → <code>New project</code> → <code>Version Control</code> → <code>Git</code></li>
+<li><a href="https://www.book.utilitr.org/03_fiches_thematiques/fiche_configurer_git#démarche-générale">Générer un <em>token</em></a> (jeton d’authentification) sur <code>GitLab</code></li>
+<li>Stocker le <em>token</em> dans un dossier personnel ou un logiciel de gestion de mots de passe</li>
+<li>Terminer la procédure de clonage en fournissant le nom d’utilisateur <code>GitLab</code> et le <em>token</em></li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<p>❓ <strong>Question</strong> : qu’est ce qui différencie le projet cloné d’un projet quelconque ?</p>
+<p>On peut se référer à la documentation d’<a href="https://www.book.utilitr.org/03_fiches_thematiques/fiche_git_utilisation">utilitR</a></p>
+</section>
+<section id="application-1" class="level2">
+<h2 class="anchored" data-anchor-id="application-1">Application 1</h2>
+<div class="callout-tip callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Premiers commits
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="incremental">
+<ol class="incremental" type="1">
+<li>Créer un dossier 📁 <code>scripts</code></li>
+<li>Y créer les fichiers <code>script1.R</code> et <code>script2.R</code>, chacun contenant quelques commandes <code>R</code> de votre choix</li>
+<li>Ajouter ces fichiers à la zone de <em>staging</em> de Git en les cochant dans l’interface <code>RStudio</code></li>
+<li>Effectuer un <code>commit</code>, auquel on donnera un message descriptif pertinent</li>
+<li>Supprimer le fichier <code>script1.R</code> et modifier le contenu du fichier <code>script2.R</code></li>
+<li>Analyser ce qui se passe lorsque l’on coche ces fichiers dans l’interface <code>RStudio</code></li>
+<li>Effectuer un nouveau <em>commit</em> pour ajouter ces modifications à l’historique</li>
+<li>Visualiser l’historique du projet à partir de l’interface graphique de <code>RStudio</code></li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<p>❓ <strong>Question</strong> : à ce stade, le dépôt du projet sur <code>GitHub</code> (<code>remote</code>) a-t-il été modifié ?</p>
+</section>
+<section id="application-2" class="level2">
+<h2 class="anchored" data-anchor-id="application-2">Application 2</h2>
+<div class="callout-tip callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Interactions avec le dépôt distant
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="incremental">
+<ol class="incremental" type="1">
+<li>Effectuer un <code>push</code> pour intégrer les changements locaux au projet distant</li>
+<li>Parcourir l’historique du projet sur <code>GitHub</code>
+<ol class="incremental" type="a">
+<li>Faire apparaître les différences entre deux versions consécutives du projet</li>
+<li>Afficher une version passée du projet</li>
+</ol></li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="bonnes-pratiques" class="level2 smaller" data-auto-animate="true">
+<h2 class="smaller anchored" data-auto-animate="true" data-anchor-id="bonnes-pratiques">Bonnes pratiques</h2>
+<p><strong>Que versionne-t-on ?</strong></p>
+<div class="incremental">
+<ul class="incremental">
+<li>Essentiellement du <span class="orange"><strong>code source</strong></span></li>
+<li><span class="orange"><strong>Pas d’outputs</strong></span> (fichiers <code>.html</code>, <code>.pdf</code>, modèles…)</li>
+<li><span class="orange"><strong>Pas de données</strong></span>, d’informations locales ou sensibles</li>
+</ul>
+</div>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Pour définir des règles qui évitent de committer tel ou tel fichier, on utilise un fichier nommé <strong><code>.gitignore</code></strong>.</p>
+<p>Si on mélange du code et des éléments annexes (<em>output</em>, données…) dans un même dossier, il <span class="orange"><strong>faut consacrer du temps à ce fichier</strong></span>.</p>
+<p>Le site <a href="https://www.toptal.com/developers/gitignore"><code>gitignore.io</code></a> peut vous fournir des modèles.</p>
+<p>N’hésitez pas à y ajouter des règles conservatrices (par exemple <code>*.csv</code>), comme cela est expliqué dans <a href="https://www.book.utilitr.org/git.html?q=gitignore#gitignore">la documentation <code>utilitR</code></a>.</p>
+</div>
+</div>
+</section>
+<section id="bonnes-pratiques-1" class="level2 smaller" data-auto-animate="true">
+<h2 class="smaller anchored" data-auto-animate="true" data-anchor-id="bonnes-pratiques-1">Bonnes pratiques</h2>
+<p><strong>Format des commits</strong></p>
+<div class="quarto-layout-panel">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="incremental quarto-layout-cell" style="flex-basis: 40.0%;justify-content: center;">
+<ul class="incremental">
+<li><span class="orange"><strong>Fréquence</strong></span>
+<ul class="incremental">
+<li>Aussi souvent que possible</li>
+<li>Le lot de modifications doit “faire sens”</li>
+</ul></li>
+<li><span class="orange"><strong>Messages</strong></span>
+<ul class="incremental">
+<li>Courts et informatifs (comme un titre de mail)</li>
+<li>Décrire <strong>le pourquoi plutôt que le comment</strong> dans le texte</li>
+</ul></li>
+</ul>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 60.0%;justify-content: center;">
+<p><img src="img/titre-commit.png" class="img-fluid"></p>
+</div>
+</div>
+</div>
+</section>
+<section id="application-3" class="level2">
+<h2 class="anchored" data-anchor-id="application-3">Application 3</h2>
+<div class="callout-tip callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Le fichier <code>.gitignore</code>
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="incremental">
+<p>Lors de la création du projet sur <code>GitHub</code>, nous avons demandé la création d’un fichier <code>.gitignore</code>, qui se situe à la racine du projet. Il spécifie l’ensemble des fichiers qui seront toujours exclus de l’indexation faite par <code>Git</code>.</p>
+<ol class="incremental" type="1">
+<li>Exclure les fichiers de type <code>*.pdf</code> et <code>*.html</code></li>
+<li>Créer un dossier <code>data</code> à la racine du projet et créer à l’intérieur de celui-ci un fichier <code>data/raw.csv</code> avec une ligne de données quelconque</li>
+<li>Ajouter au <code>.gitignore</code> le dossier <code>data/</code></li>
+<li>Vérifier que toutes les règles ajoutées précédemment fonctionnent comme attendu</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<p>❓ <strong>Question</strong> : que se passe-t-il lorsque l’on ajoute au <code>.gitignore</code> des fichiers qui ont déjà été <em>commit</em> sur le projet Git ?</p>
+</section>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
